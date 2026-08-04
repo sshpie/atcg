@@ -1,0 +1,2 @@
+Seeded from enthec/webappanalyzer (GPL-3.0) on 2026-08-03.
+Upstream commit: 5250f1fef9ae7552d55048aa817d00f82c7058ff

@@ -9,6 +9,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build": "node scripts/build.mjs",
+    "build:unpacked": "node scripts/build.mjs --unpacked",
     "package": "node scripts/build.mjs --zip",
     "lint:corpus": "node scripts/validate-corpus.mjs",
     "lint:spdx": "node scripts/lint-spdx.mjs"

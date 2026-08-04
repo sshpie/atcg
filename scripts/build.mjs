@@ -3,7 +3,11 @@ import { build } from 'esbuild';
 import { cp, mkdir, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
-const OUT = 'dist';
+// Default target `dist/` is the git-ignored dev build (with sourcemaps).
+// `--unpacked` emits the committed, no-build `unpacked/` artifact instead:
+// sourcemap-free (no TS source leak) and load-unpacked-ready straight from a clone.
+const UNPACKED = process.argv.includes('--unpacked');
+const OUT = UNPACKED ? 'unpacked' : 'dist';
 await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
@@ -21,7 +25,7 @@ if (Object.keys(entryPoints).length) {
     entryPoints,
     outdir: OUT,
     bundle: true, format: 'esm', target: 'chrome102',
-    sourcemap: true, logLevel: 'info',
+    sourcemap: !UNPACKED, logLevel: 'info',
   });
 }
 // Copy static assets that exist.

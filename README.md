@@ -26,11 +26,14 @@ just asserted.
 ## Install
 
 - **Chrome Web Store:** TBD (link will be added on first publish).
-- **Load unpacked (supported local/dev install):**
-  1. `npm install && npm run build`
-  2. Open `chrome://extensions`, enable **Developer mode**.
-  3. Click **Load unpacked** and select the `dist/` directory.
-  4. Click the ATCG toolbar action on any page to analyze it.
+- **Load unpacked — no build required (recommended):** the repo ships a prebuilt,
+  ready-to-load extension in the **`unpacked/`** directory. No Node, no `npm`.
+  1. Open `chrome://extensions`, enable **Developer mode** (top-right).
+  2. Click **Load unpacked** and select the **`unpacked/`** directory.
+  3. Click the ATCG toolbar action on any page to analyze it.
+- **Load unpacked from a source build (for development):**
+  1. `npm install && npm run build` (writes `dist/`).
+  2. Load the `dist/` directory via the same steps above.
 
   **Chrome 151+ caveat:** command-line unpacked loading
   (`--load-extension`, including with
@@ -44,8 +47,9 @@ just asserted.
 
 ```sh
 npm install
-npm run build      # writes dist/
-npm run package     # writes dist/atcg-1.0.0.zip (Web Store artifact)
+npm run build            # writes dist/ (dev build, with sourcemaps)
+npm run build:unpacked   # regenerates the committed unpacked/ folder (no sourcemaps)
+npm run package          # writes dist/atcg-1.0.0.zip (Web Store artifact)
 ```
 
 ## How detection works
