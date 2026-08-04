@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.zip
+.DS_Store
+
+# SDD scratch workspace (ledger, briefs, review packages) — never committed
+.superpowers/

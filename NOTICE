@@ -1,0 +1,4 @@
+ATCG bundles a web-technology fingerprint corpus derived from
+enthec/webappanalyzer (https://github.com/enthec/webappanalyzer),
+licensed under GPL-3.0. Modifications are tracked in fingerprints/ via
+each entry's _meta.source field. See LICENSE for terms.

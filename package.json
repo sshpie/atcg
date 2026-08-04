@@ -1,0 +1,24 @@
+{
+  "name": "atcg",
+  "version": "1.0.0",
+  "description": "Open, local-only, zero-telemetry Chrome extension that fingerprints a website's technology stack.",
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "node scripts/build.mjs",
+    "package": "node scripts/build.mjs --zip",
+    "lint:corpus": "node scripts/validate-corpus.mjs",
+    "lint:spdx": "node scripts/lint-spdx.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^20.14.0",
+    "esbuild": "^0.23.0",
+    "jsdom": "^24.1.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
